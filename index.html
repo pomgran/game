@@ -10,36 +10,53 @@
   <header>
     <h1>Coin Hoarders</h1>
   </header>
-
-  <main id="app">
-    <section id="register">
-      <h2>Join the Game</h2>
-      <input type="text" id="player-name" placeholder="Enter your name" required>
-      <button onclick="registerPlayer()">Join</button>
+  <main>
+    <section id="login">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button onclick="login()">Login</button>
     </section>
 
-    <section id="dashboard" style="display: none;">
-      <h2>Welcome, <span id="player-name-display"></span>!</h2>
-      <p>Wealth: $<span id="player-wealth">0</span></p>
-      <p>Coins: <span id="player-coins">0</span></p>
+    <section id="game" style="display: none;">
+      <div class="box">
+        <h2>Your Stats</h2>
+        <p>Money: $<span id="player-money">0</span></p>
+        <p>Coins: <span id="player-coins">0</span></p>
+      </div>
 
-      <h3>Active Auctions</h3>
-      <div id="auctions"></div>
+      <div class="box">
+        <h2>Automatic Auctions</h2>
+        <div id="auto-auctions"></div>
+      </div>
 
-      <h3>Create Your Own Auction</h3>
-      <form id="create-auction-form" onsubmit="createAuction(event)">
-        <label for="auction-type">Auction Type:</label>
-        <select id="auction-type">
-          <option value="coins">Coins</option>
-          <option value="money">Money</option>
-        </select>
-        <label for="auction-items">Number of Items:</label>
-        <input type="number" id="auction-items" min="1" required>
-        <button type="submit">Create Auction</button>
-      </form>
+      <div class="box">
+        <h2>User-Created Auctions</h2>
+        <div id="user-auctions"></div>
+      </div>
+
+      <div class="box">
+        <h2>Your Auctions</h2>
+        <div id="your-auctions"></div>
+      </div>
+
+      <div class="box">
+        <h2>Create Your Auction</h2>
+        <form id="create-auction-form" onsubmit="createAuction(event)">
+          <label for="auction-type">Auction Type:</label>
+          <select id="auction-type">
+            <option value="coins">Coins</option>
+            <option value="money">Money</option>
+          </select>
+          <label for="auction-items">Number of Items:</label>
+          <input type="number" id="auction-items" min="1" required>
+          <label for="auction-end-time">End Time (in minutes):</label>
+          <input type="number" id="auction-end-time" min="1" required>
+          <button type="submit">Create Auction</button>
+        </form>
+      </div>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
